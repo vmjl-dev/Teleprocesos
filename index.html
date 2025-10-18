@@ -1,1 +1,448 @@
-Index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos del Teleproceso Moderno</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="student-info">
+                    <strong>Victor Jerez, V-28.001.871</strong>
+                </div>
+                <div class="date">
+                    <strong>17 de Octubre de 2025</strong>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="title-section">
+        <div class="container">
+            <h1>Fundamentos del Teleproceso Moderno</h1>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="content-wrapper">
+            <aside class="table-of-contents">
+                <h3 class="toc-title">Índice</h3>
+                <ul class="toc-list">
+                    <li><a href="#introduccion">Introducción al Teleproceso Moderno</a></li>
+                    <li><a href="#arquitectura">Arquitectura Cliente-Servidor</a></li>
+                    <li><a href="#modelo-osi">Modelo OSI/ISO</a>
+                        <ul class="toc-list">
+                            <li class="toc-level-2"><a href="#capas-osi">Las Siete Capas del Modelo OSI</a></li>
+                            <li class="toc-level-2"><a href="#proceso-comunicacion">Proceso de Comunicación</a></li>
+                            <li class="toc-level-2"><a href="#encapsulamiento">Encapsulamiento de Datos</a></li>
+                            <li class="toc-level-2"><a href="#ventajas-desventajas">Ventajas y Desventajas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#transmision-datos">Principios de Transmisión de Datos</a>
+                        <ul class="toc-list">
+                            <li class="toc-level-2"><a href="#componentes">Componentes Básicos</a></li>
+                            <li class="toc-level-2"><a href="#tipos-transmision">Tipos de Transmisión</a></li>
+                            <li class="toc-level-2"><a href="#modos-transmision">Modos de Transmisión</a></li>
+                            <li class="toc-level-2"><a href="#ancho-banda">Ancho de Banda</a></li>
+                            <li class="toc-level-2"><a href="#medios-transmision">Medios de Transmisión</a></li>
+                            <li class="toc-level-2"><a href="#sincronizacion">Sincronización</a></li>
+                            <li class="toc-level-2"><a href="#control-errores">Control de Errores</a></li>
+                            <li class="toc-level-2"><a href="#conmutacion">Técnicas de Conmutación</a></li>
+                            <li class="toc-level-2"><a href="#topologias">Topologías de Red</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#seguridad">Seguridad en Teleproceso</a>
+                        <ul class="toc-list">
+                            <li class="toc-level-2"><a href="#cifrado">Cifrado</a></li>
+                            <li class="toc-level-2"><a href="#tls">TLS</a></li>
+                            <li class="toc-level-2"><a href="#autenticacion">Autenticación</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#conclusion">Conclusión</a></li>
+                </ul>
+            </aside>
+            
+            <main class="main-content">
+                <section id="introduccion">
+                    <h2>Introducción al Teleproceso Moderno</h2>
+                    <p>El <strong>teleproceso</strong> es el resultado de la conjunción de dos palabras: <strong>TELE</strong> (a distancia) y <strong>PROCESO</strong> (ejecución sistemática de un conjunto de instrucciones para capturar, transformar y generar información). Por tanto, el teleproceso se define como la ejecución de una aplicación de forma remota mediante el uso de una red de comunicación de datos. Esta tecnología está intrínsecamente asociada con las redes de comunicación de datos y representa uno de los pilares fundamentales de la informática moderna.</p>
+                    <p>El teleproceso existe en múltiples aplicaciones de la vida cotidiana que cumplen con esta definición: <strong>telemedicina, telemetría, banca en línea, sistemas de reservas, comercio electrónico</strong> y prácticamente cualquier aplicación que permita la interacción bidireccional entre un usuario y un sistema de procesamiento ubicados en lugares diferentes.</p>
+                </section>
+                
+                <section id="arquitectura">
+                    <h2>Arquitectura Cliente-Servidor en Teleproceso</h2>
+                    <p>La <strong>arquitectura cliente-servidor</strong> es un modelo de diseño fundamental en teleproceso donde las tareas se reparten entre los proveedores de recursos (servidores) y los demandantes (clientes). En este modelo:</p>
+                    
+                    <h3>El cliente</h3>
+                    <p>Inicia solicitudes de manera activa, espera y recibe las respuestas del servidor, puede conectarse a varios servidores simultáneamente y normalmente interactúa con los usuarios finales mediante una interfaz gráfica.</p>
+                    
+                    <h3>El servidor</h3>
+                    <p>Espera pasivamente las solicitudes de los clientes, procesa cada solicitud recibida y envía la respuesta correspondiente, acepta conexiones de múltiples clientes de forma concurrente y centraliza la gestión de recursos y aplicaciones.</p>
+                    
+                    <p>El funcionamiento sigue este proceso: el cliente realiza una solicitud de recurso o servicio al servidor a través de la red, el servidor recibe y procesa la entrada de datos, compone una respuesta y la envía por la red hasta llegar al cliente, quien la recibe y muestra una salida adecuada para el usuario.</p>
+                    
+                    <p>Las ventajas de esta separación de responsabilidades incluyen la posibilidad de escalar o mantener las aplicaciones por separado, facilitar la creación de equipos de trabajo independientes y utilizar infraestructuras especializadas para cada componente.</p>
+                </section>
+                
+                <section id="modelo-osi">
+                    <h2>Modelo OSI/ISO: Fundamento Teórico de las Comunicaciones</h2>
+                    <p>El <strong>Modelo de Interconexión de Sistemas Abiertos (OSI)</strong> fue desarrollado por la Organización Internacional de Normalización (ISO) a finales de la década de 1970, publicándose en su primera versión en 1984 como ISO 7498. Este modelo proporciona un <strong>marco conceptual teórico</strong> que describe las funciones de un sistema de red mediante siete capas de abstracción.</p>
+                    
+                    <div class="note">
+                        <p><strong>Nota importante:</strong> El modelo OSI es principalmente un referente teórico, mientras que el <strong>modelo TCP/IP</strong> es el que realmente se implementa en Internet y redes modernas.</p>
+                    </div>
+                    
+                    <section id="capas-osi">
+                        <h3>Las Siete Capas del Modelo OSI</h3>
+                        
+                        <h4>Capa 7 - Capa de Aplicación</h4>
+                        <p>Ofrece a las aplicaciones la posibilidad de acceder a los servicios de las demás capas y define los protocolos que utilizan las aplicaciones para intercambiar datos. Los protocolos principales incluyen:</p>
+                        <ul class="protocol-list">
+                            <li><strong>HTTP/HTTPS:</strong> para acceso a páginas web</li>
+                            <li><strong>FTP:</strong> para transferencia de archivos</li>
+                            <li><strong>SMTP:</strong> para envío de correo electrónico</li>
+                            <li><strong>POP/IMAP:</strong> para recuperación de correo electrónico</li>
+                            <li><strong>DNS:</strong> para resolución de nombres de dominio</li>
+                            <li><strong>DHCP:</strong> para configuración dinámica de hosts</li>
+                        </ul>
+                        <p>El usuario normalmente no interactúa directamente con esta capa, sino con programas que interactúan con ella ocultando la complejidad subyacente.</p>
+                        
+                        <h4>Capa 6 - Capa de Presentación</h4>
+                        <p>Prepara los datos para que puedan mostrarse al usuario, actuando como traductor. Es responsable de la codificación y descodificación de información (como el cifrado HTTPS), la compresión y descompresión de datos, y la sintaxis de los datos mismos. Formatos como HTML, JSON y CSV operan en esta capa.</p>
+                        
+                        <h4>Capa 5 - Capa de Sesión</h4>
+                        <p>Gestiona y controla las sesiones de comunicación entre aplicaciones. Establece, mantiene y finaliza las conexiones entre aplicaciones, controlando los diálogos y la sincronización.</p>
+                        
+                        <h4>Capa 4 - Capa de Transporte</h4>
+                        <p>Proporciona servicios de comunicación de extremo a extremo para las aplicaciones. Divide los datos en segmentos, asigna números de secuencia para asegurar el orden correcto en la recepción y gestiona el control de flujo y errores. Los protocolos principales son:</p>
+                        <ul class="protocol-list">
+                            <li><strong>TCP (Transmission Control Protocol):</strong> protocolo orientado a conexión que garantiza la entrega fiable y ordenada de datos mediante confirmación de recepción y retransmisión de paquetes perdidos</li>
+                            <li><strong>UDP (User Datagram Protocol):</strong> protocolo no orientado a conexión, más rápido pero sin garantías de entrega ni control de errores</li>
+                        </ul>
+                        <p>TCP es adecuado para aplicaciones que requieren entrega confiable (correo electrónico, navegación web), mientras que UDP se usa para aplicaciones en tiempo real donde la velocidad es prioritaria (video en vivo, videojuegos, VoIP).</p>
+                        
+                        <h4>Capa 3 - Capa de Red</h4>
+                        <p>Proporciona conectividad y selección de ruta entre sistemas ubicados en redes geográficamente distintas. Sus funciones principales incluyen:</p>
+                        <ul>
+                            <li><strong>Direccionamiento:</strong> proporciona mecanismos para direccionar datos a equipos finales mediante direcciones IP</li>
+                            <li><strong>Encapsulamiento:</strong> agrega encabezados con direcciones de origen y destino, convirtiendo segmentos en paquetes</li>
+                            <li><strong>Enrutamiento:</strong> determina la ruta más rápida y eficaz para llegar al destino</li>
+                            <li><strong>Desencapsulamiento:</strong> lee y procesa los encabezados de los paquetes recibidos</li>
+                        </ul>
+                        <p>Existen dos versiones del Protocolo de Internet: <strong>IPv4</strong> (4,294,967,296 direcciones) e <strong>IPv6</strong> (3.4 × 10³⁸ direcciones, suficiente para miles de direcciones por cada metro cuadrado de la Tierra).</p>
+                        
+                        <h4>Capa 2 - Capa de Enlace de Datos</h4>
+                        <p>Gestiona las tecnologías para conectar dos máquinas a través de una red donde la capa física ya existe. Controla los marcos de datos, implementa control de flujo y control de errores, y agrega direcciones locales (MAC) de origen y destino a las tramas. Ethernet es el estándar más común en esta capa.</p>
+                        
+                        <h4>Capa 1 - Capa Física</h4>
+                        <p>Se refiere al medio de comunicación físico y las tecnologías para transmitir datos a través de ese medio. Incluye el equipo físico (cables, conmutadores de red) y convierte las tramas en una secuencia de bits (unos y ceros) para su transmisión a través de medios físicos. Las tecnologías incluyen Bluetooth, NFC, cables de cobre, fibra óptica y transmisión inalámbrica.</p>
+                    </section>
+                    
+                    <section id="proceso-comunicacion">
+                        <h3>Proceso de Comunicación en el Modelo OSI</h3>
+                        <p>Cuando un usuario envía un correo electrónico a otro usuario, los datos atraviesan las siete capas en orden descendente en el dispositivo emisor y luego en orden ascendente en el receptor:</p>
+                        <ol>
+                            <li>La aplicación de correo pasa el mensaje a la <strong>capa de aplicación</strong>, que selecciona el protocolo SMTP</li>
+                            <li>La <strong>capa de presentación</strong> comprime y cifra los datos si es necesario</li>
+                            <li>La <strong>capa de sesión</strong> inicia la sesión de comunicación</li>
+                            <li>La <strong>capa de transporte</strong> segmenta los datos y agrega números de secuencia</li>
+                            <li>La <strong>capa de red</strong> fragmenta los segmentos en paquetes y agrega direcciones IP</li>
+                            <li>La <strong>capa de enlace de datos</strong> divide los paquetes en tramas y agrega direcciones MAC</li>
+                            <li>La <strong>capa física</strong> convierte las tramas en señales eléctricas, ópticas o electromagnéticas que viajan a través del medio físico</li>
+                        </ol>
+                    </section>
+                    
+                    <section id="encapsulamiento">
+                        <h3>Encapsulamiento de Datos</h3>
+                        <p>El <strong>encapsulamiento</strong> es el proceso por el cual los datos se colocan en paquetes administrables y rastreables. Cada capa agrega su propio encabezado con información de control, creando unidades de datos de protocolo (PDU) específicas:</p>
+                        <ul class="protocol-list">
+                            <li><strong>Datos:</strong> en las capas de aplicación, presentación y sesión</li>
+                            <li><strong>Segmentos:</strong> en la capa de transporte</li>
+                            <li><strong>Paquetes:</strong> en la capa de red</li>
+                            <li><strong>Tramas:</strong> en la capa de enlace de datos</li>
+                            <li><strong>Bits:</strong> en la capa física</li>
+                        </ul>
+                        <p>En el receptor, el proceso inverso (desencapsulamiento) elimina sucesivamente cada capa de encabezados hasta recuperar los datos originales.</p>
+                    </section>
+                    
+                    <section id="ventajas-desventajas">
+                        <h3>Ventajas y Desventajas del Modelo OSI</h3>
+                        
+                        <h4>Ventajas:</h4>
+                        <ul class="advantages-list">
+                            <li>Facilita la comprensión al dividir un problema complejo en partes más simples y manejables</li>
+                            <li>Normaliza los componentes de red permitiendo la interoperabilidad entre diferentes fabricantes</li>
+                            <li>Evita problemas de incompatibilidad al establecer estándares claros</li>
+                            <li>Permite el desarrollo y mantenimiento independiente de cada capa</li>
+                            <li>Facilita la detección y resolución de problemas de red al aislar funciones por capas</li>
+                        </ul>
+                        
+                        <h4>Desventajas:</h4>
+                        <ul class="disadvantages-list">
+                            <li>Tuvo mala sincronización con el desarrollo de TCP/IP, que se adoptó más ampliamente</li>
+                            <li>Presenta funciones repetidas en diferentes capas, generando redundancia</li>
+                            <li>Mayor complejidad conceptual comparado con modelos más simples</li>
+                            <li>No se implementa directamente en la práctica; TCP/IP es el estándar real</li>
+                        </ul>
+                    </section>
+                </section>
+                
+                <section id="transmision-datos">
+                    <h2>Principios de Transmisión de Datos</h2>
+                    <p>La <strong>transmisión de datos</strong> es la transferencia física de datos (un flujo digital de bits) por un canal de comunicación punto a punto o punto a multipunto. Los datos se representan como señales electromagnéticas: tensión eléctrica, ondas radioeléctricas, microondas o infrarrojos.</p>
+                    
+                    <section id="componentes">
+                        <h3>Componentes Básicos de un Sistema de Transmisión</h3>
+                        <p>Todo sistema de transmisión de datos consta de los siguientes elementos fundamentales:</p>
+                        <ol>
+                            <li><strong>Fuente de información:</strong> origen de los datos a transmitir</li>
+                            <li><strong>Transductor:</strong> convierte la información en señales eléctricas digitales, agrega redundancia e información de control</li>
+                            <li><strong>Transmisor:</strong> interfaz entre el transductor y el canal, transforma las señales digitales en formas compatibles con el canal mediante técnicas de modulación (MODEM)</li>
+                            <li><strong>Canal de transmisión:</strong> medio físico (cable telefónico, par trenzado, coaxial, fibra óptica, radio, infrarrojos) por donde viajan las señales</li>
+                            <li><strong>Receptor:</strong> recibe y decodifica las señales del canal</li>
+                            <li><strong>Destino:</strong> receptor final de la información</li>
+                        </ol>
+                    </section>
+                    
+                    <section id="tipos-transmision">
+                        <h3>Tipos de Transmisión</h3>
+                        
+                        <h4>Transmisión Analógica</h4>
+                        <p>Las señales se caracterizan por el cambio continuo de amplitud. En ingeniería de control de procesos, la señal oscila entre 4 y 20 mA y se transmite en forma puramente analógica. El contenido de información es restringido, limitándose al valor de la corriente y su presencia o ausencia.</p>
+                        
+                        <h4>Transmisión Digital</h4>
+                        <p>Las señales no cambian continuamente, sino que se transmiten en paquetes de datos discretos. No son interpretadas inmediatamente, sino que deben ser decodificadas por el receptor. Se transmiten como pulsos eléctricos que varían entre dos niveles distintos de voltaje. Ofrece mayor inmunidad al ruido y permite corrección de errores.</p>
+                    </section>
+                    
+                    <section id="modos-transmision">
+                        <h3>Modos de Transmisión</h3>
+                        
+                        <h4>Transmisión Símplex</h4>
+                        <p>Permite la transmisión de datos en una sola dirección, sin posibilidad de retorno. Un dispositivo siempre actúa como fuente y el otro como receptor. Ejemplos: transmisión de televisión tradicional, radiodifusión, comunicación entre computadora e impresora.</p>
+                        <p><strong>Ventajas:</strong> dispositivos sencillos, comunicación directa sin estaciones intermedias.</p>
+                        <p><strong>Desventajas:</strong> solo apto para redes simples de pequeña capacidad, comunicación unidireccional limitada.</p>
+                        
+                        <h4>Transmisión Half-Duplex (Semidúplex)</h4>
+                        <p>Permite la transmisión en ambas direcciones, pero no simultáneamente. Ambos lados pueden transmitir y recibir datos, pero en momentos diferentes, alternando la dirección de transmisión. Ejemplo: walkie-talkies, donde se dice "cambio" para indicar el fin de la transmisión.</p>
+                        <p><strong>Ventajas:</strong> conserva ancho de banda al necesitar solo un canal para transmisión alternada.</p>
+                        <p><strong>Desventajas:</strong> pérdida o distorsión si más de una parte transmite simultáneamente, velocidad de transmisión baja debido a retrasos por conmutación.</p>
+                        
+                        <h4>Transmisión Full-Duplex (Dúplex Completo)</h4>
+                        <p>Permite que ambos dispositivos transmitan y reciban datos simultáneamente. Requiere dos canales de comunicación independientes o técnicas de cancelación de eco. Ejemplo: conversación telefónica moderna, redes Ethernet Gigabit.</p>
+                        <p><strong>Ventajas:</strong> alta eficiencia, permite comunicación bidireccional simultánea.</p>
+                        <p><strong>Desventajas:</strong> mayor costo y complejidad técnica.</p>
+                    </section>
+                    
+                    <section id="ancho-banda">
+                        <h3>Ancho de Banda y Tasa de Transferencia</h3>
+                        
+                        <h4>Ancho de Banda</h4>
+                        <p>El ancho de banda se mide como la cantidad de datos que se pueden transferir entre dos puntos de una red en un tiempo específico. Normalmente se mide en bits por segundo (bps) y se expresa como tasa de bits. Representa la capacidad de transmisión de una conexión y es un factor importante para determinar la calidad y velocidad de una red.</p>
+                        <p>Tipos de ancho de banda:</p>
+                        <ul class="protocol-list">
+                            <li><strong>Máximo teórico:</strong> tasa de transmisión más alta en circunstancias ideales, no alcanzable en instalaciones físicas reales</li>
+                            <li><strong>Ancho de banda efectivo:</strong> cifra de velocidad de transmisión fiable más alta, siempre menor que el máximo teórico</li>
+                            <li><strong>Rendimiento (throughput):</strong> tasa media de transferencia de datos exitosa, valor útil para comprender la velocidad típica</li>
+                        </ul>
+                        
+                        <h4>Tasa de Transferencia de Datos</h4>
+                        <p>La tasa de transferencia se refiere a la velocidad a la que los datos se transmiten entre dispositivos o a través de una red. Se mide en bits por segundo (bps), bytes por segundo (Bps) o sus múltiplos: Kbps (kilobits), Mbps (megabits), Gbps (gigabits).</p>
+                        <p>Un mayor ancho de banda generalmente permite tasas de transferencia más altas, ya que se pueden transmitir más datos simultáneamente.</p>
+                    </section>
+                    
+                    <section id="medios-transmision">
+                        <h3>Medios de Transmisión</h3>
+                        
+                        <h4>Cable de Par Trenzado</h4>
+                        <p>Consiste en pares de cables de cobre o aluminio aislados enrollados entre sí para reducir la interferencia eléctrica y la diafonía. Existen dos tipos principales:</p>
+                        <ul class="protocol-list">
+                            <li><strong>UTP (Par Trenzado No Apantallado):</strong> sin blindaje adicional, más económico</li>
+                            <li><strong>STP (Par Trenzado Apantallado):</strong> con cubierta de papel de aluminio para eliminar interferencias</li>
+                        </ul>
+                        <p>Categorías comunes: Cat5e (1 Gbps, 100 MHz), Cat6 (10 Gbps a 55m, 250 MHz), Cat6a (10 Gbps a 100m, 500 MHz), Cat7 (10 Gbps, 600 MHz), Cat8 (25/40 Gbps, 2000 MHz). Distancia máxima típica: hasta 100 metros.</p>
+                        
+                        <h4>Cable Coaxial</h4>
+                        <p>Compuesto por un conductor sólido interior rodeado por un conductor de lámina exterior paralelo protegido por una capa aislante. Tiene mayor capacidad de transmisión y mejor inmunidad al ruido que el par trenzado. Se utiliza para señales de video (75 ohmios) y transmisión de datos bidireccional (50 ohmios). Distancia máxima: hasta 500 metros.</p>
+                        
+                        <h4>Fibra Óptica</h4>
+                        <p>Transmite datos mediante pulsos de luz a través de pequeños tubos de vidrio o plástico. Ofrece un ancho de banda significativamente mayor que los cables de cobre y es inmune a interferencias electromagnéticas. Tipos:</p>
+                        <ul class="protocol-list">
+                            <li><strong>Fibra monomodo (SMF):</strong> núcleo pequeño (8-10 μm), solo un modo de propagación de luz, distancia de hasta 80-100 km</li>
+                            <li><strong>Fibra multimodo (MMF):</strong> núcleo más grande (50-62.5 μm), múltiples rayos de luz, distancias variables según categoría (OM3/OM4: hasta 550m en redes 10G)</li>
+                        </ul>
+                        <p>Velocidades: desde 10/100/1000 Mbps hasta 10/40/100/200 Gbps.</p>
+                    </section>
+                    
+                    <section id="sincronizacion">
+                        <h3>Sincronización de Transmisiones</h3>
+                        
+                        <h4>Transmisión Asíncrona</h4>
+                        <p>En la transmisión asíncrona, el proceso de sincronización entre emisor y receptor se realiza en cada palabra de código transmitido. No hay relación temporal constante entre transmisor y receptor; cada uno utiliza su propio reloj.</p>
+                        <p><strong>Características:</strong></p>
+                        <ul>
+                            <li>Los datos se transmiten por caracteres o bytes individuales</li>
+                            <li>Cada carácter está precedido por un bit de arranque (start) que sincroniza el reloj del receptor</li>
+                            <li>Finaliza con uno o más bits de parada (stop) que separan caracteres consecutivos</li>
+                            <li>Puede incluir un bit de paridad para verificación de errores</li>
+                            <li>Entre dos caracteres consecutivos puede haber intervalos irregulares</li>
+                            <li>Rendimiento típico alrededor del 70-80% debido a bits de control</li>
+                        </ul>
+                        <p><strong>Ventajas:</strong> simple implementación, adecuada para flujo irregular de datos, recuperación rápida de errores.</p>
+                        <p><strong>Desventajas:</strong> menor eficiencia debido a bits de overhead, limitada para altas velocidades.</p>
+                        
+                        <h4>Transmisión Síncrona</h4>
+                        <p>En la transmisión síncrona se mantiene sincronización continua entre emisor y receptor, generalmente mediante una señal de reloj compartida o recuperada de la señal de datos.</p>
+                        <p><strong>Características:</strong></p>
+                        <ul>
+                            <li>Los datos se agrupan en bloques formando tramas con tamaño y estructura determinados</li>
+                            <li>Cada trama comienza con patrones de sincronismo (SYN) y termina con secuencias de fin de bloque</li>
+                            <li>Los bloques típicamente tienen entre 128 y 4,096 bytes</li>
+                            <li>Rendimiento muy alto (superior al 95-99%)</li>
+                            <li>Más eficiente e inmune a errores que la asíncrona</li>
+                            <li>Requiere circuitos más complejos para sincronización</li>
+                        </ul>
+                        <p><strong>Ventajas:</strong> alta eficiencia de transmisión, apta para altas velocidades, mejor detección de errores.</p>
+                        <p><strong>Desventajas:</strong> mayor complejidad tecnológica, requiere buffers para datos.</p>
+                    </section>
+                    
+                    <section id="control-errores">
+                        <h3>Control de Errores</h3>
+                        
+                        <h4>Bit de Paridad</h4>
+                        <p>El bit de paridad es el método más simple de detección de errores. Se agrega un bit adicional a cada carácter para que la cantidad total de bits "1" sea par (paridad par) o impar (paridad impar). El receptor verifica la paridad de cada unidad de entrada de datos.</p>
+                        <p><strong>Limitaciones:</strong> solo puede detectar un número impar de errores; si ocurren dos bits erróneos, no se detecta el error, detectando aproximadamente el 50% de los errores.</p>
+                        
+                        <h4>Prueba de Paridad Vertical y Horizontal (VRC/LRC)</h4>
+                        <p>La <strong>paridad vertical (VRC)</strong> aplica la prueba de paridad a cada carácter de un bloque de datos. La <strong>paridad horizontal o longitudinal (LRC)</strong> se utiliza para determinar si ocurrió un error en un mensaje completo compuesto por caracteres. La secuencia de dígitos en el LRC se calcula en el transmisor y se transmite como el último carácter del mensaje (carácter BCC). En el receptor, el BCC se recalcula y se compara con el BCC transmitido.</p>
+                        
+                        <h4>CRC (Cyclic Redundancy Check) - Comprobación de Redundancia Cíclica</h4>
+                        <p>El CRC es una técnica robusta para detectar errores de ráfaga (múltiples bits consecutivos). Utiliza operaciones matemáticas polinomiales para generar un código de verificación que se agrega a los datos transmitidos. En la recepción, se recalcula el CRC y se compara con el transmitido para verificar la integridad de los datos. Puede detectar el 99.99% de los errores.</p>
+                    </section>
+                    
+                    <section id="conmutacion">
+                        <h3>Técnicas de Conmutación</h3>
+                        
+                        <h4>Conmutación de Circuitos</h4>
+                        <p>Basada en los principios de los sistemas telefónicos tradicionales. Establece una conexión física dedicada entre los nodos de red por toda la duración de la comunicación. El proceso incluye tres fases: establecimiento del circuito, transferencia de datos y cierre del circuito.</p>
+                        <p><strong>Ventajas:</strong> baja latencia una vez establecido, recursos dedicados, ideal para comunicación en tiempo real (voz).</p>
+                        <p><strong>Desventajas:</strong> uso ineficiente del canal cuando no hay transmisión activa, requiere tiempo para establecer la conexión, no flexible para tráfico de datos variable.</p>
+                        
+                        <h4>Conmutación de Mensajes</h4>
+                        <p>Los mensajes se transmiten como una entidad completa de un nodo a otro. Cada nodo intermedio almacena el mensaje completo antes de reenviarlo al siguiente nodo (almacenamiento y reenvío).</p>
+                        <p><strong>Ventajas:</strong> no requiere establecimiento previo de circuito, permite priorización de mensajes.</p>
+                        <p><strong>Desventajas:</strong> retrasos significativos en la entrega, requiere gran capacidad de almacenamiento en los nodos, poco eficiente para mensajes largos.</p>
+                        
+                        <h4>Conmutación de Paquetes</h4>
+                        <p>La información se divide en unidades más pequeñas llamadas paquetes. Cada paquete contiene un encabezado con información de control necesaria para enrutarlo desde el origen hasta el destino. Los paquetes se transmiten de manera independiente a través de la red y pueden seguir diferentes rutas hacia su destino.</p>
+                        <p>Dos técnicas principales:</p>
+                        <ul class="protocol-list">
+                            <li><strong>Datagrama:</strong> cada paquete se encamina independientemente, pudiendo llegar en desorden o perderse</li>
+                            <li><strong>Circuito virtual:</strong> se establece un camino lógico antes de enviar los paquetes, todos los paquetes siguen la misma ruta</li>
+                        </ul>
+                        <p><strong>Ventajas:</strong> multiplexación estadística que permite compartir eficientemente los enlaces, múltiples flujos de datos transmitidos simultáneamente, uso más eficiente del ancho de banda, robustez ante fallos.</p>
+                        <p><strong>Desventajas:</strong> posibles retrasos o descarte de paquetes en caso de congestión, mayor complejidad en el procesamiento, overhead por encabezados.</p>
+                        <p>La conmutación de paquetes se ha convertido en la base principal de las comunicaciones de datos en redes informáticas a nivel mundial, siendo el fundamento de Internet.</p>
+                    </section>
+                    
+                    <section id="topologias">
+                        <h3>Topologías de Red</h3>
+                        
+                        <h4>Topología de Bus</h4>
+                        <p>Todos los dispositivos están conectados a un único cable (bus) que actúa como medio de transmisión compartido. La transmisión es half-duplex - los dispositivos deben turnarse para transmitir.</p>
+                        <p><strong>Ventajas:</strong> fácil implementación, bajo costo, adecuada para redes pequeñas.</p>
+                        <p><strong>Desventajas:</strong> si falla el bus central, toda la red falla; el rendimiento disminuye con muchos dispositivos; difícil detección de fallas; problemas de colisiones.</p>
+                        
+                        <h4>Topología de Estrella</h4>
+                        <p>Todos los dispositivos se conectan a un dispositivo central (switch o hub). Cada nodo tiene una conexión directa con el dispositivo central, que dirige el tráfico entre nodos.</p>
+                        <p><strong>Ventajas:</strong> fácil detección y aislamiento de fallas, escalable, alto rendimiento, fácil configuración y mantenimiento.</p>
+                        <p><strong>Desventajas:</strong> dependencia del nodo central (punto único de fallo), requiere más cable que la topología de bus.</p>
+                        
+                        <h4>Topología de Anillo</h4>
+                        <p>Los dispositivos están conectados en un lazo cerrado donde cada nodo se conecta al siguiente y el último al primero. Los datos se envían en una dirección alrededor del anillo, con cada nodo regenerando la señal.</p>
+                        <p><strong>Ventajas:</strong> flujo de datos ordenado y controlado, sin colisiones de datos, rendimiento predecible.</p>
+                        <p><strong>Desventajas:</strong> si falla un nodo o un enlace, puede afectar toda la red; difícil agregar o quitar dispositivos; menos común en redes modernas.</p>
+                        
+                        <h4>Topología de Malla</h4>
+                        <p>Cada nodo está conectado a múltiples o todos los demás nodos de la red. Proporciona múltiples rutas para que los datos viajen de un punto a otro.</p>
+                        <p><strong>Ventajas:</strong> alta redundancia y resiliencia, no hay punto único de fallo, múltiples rutas alternativas, excelente para redes de misión crítica.</p>
+                        <p><strong>Desventajas:</strong> muy costosa, difícil instalación y mantenimiento, requiere gran cantidad de cables o interfaces.</p>
+                        
+                        <h4>Topología Híbrida</h4>
+                        <p>Combina dos o más topologías diferentes para aprovechar las fortalezas de cada una. Ejemplo: topología de estrella dentro de cada departamento, conectados mediante topología de anillo o malla.</p>
+                    </section>
+                </section>
+                
+                <section id="seguridad">
+                    <h2>Seguridad en Teleproceso</h2>
+                    
+                    <section id="cifrado">
+                        <h3>Cifrado</h3>
+                        <p>El cifrado es el proceso de convertir datos legibles (texto plano) en un formato codificado (texto cifrado) que solo puede ser leído por quienes poseen la clave de descifrado.</p>
+                        <p><strong>Beneficios del cifrado:</strong></p>
+                        <ul class="protocol-list">
+                            <li><strong>Privacidad:</strong> solo remitente y destinatario pueden leer los datos</li>
+                            <li><strong>Seguridad:</strong> previene vulneraciones de datos</li>
+                            <li><strong>Integridad:</strong> evita manipulación de datos durante la transmisión</li>
+                            <li><strong>Cumplimiento normativo:</strong> muchas regulaciones (HIPAA, PCI-DSS, RGPD) requieren cifrado</li>
+                        </ul>
+                        <p><strong>Tipos principales de cifrado:</strong></p>
+                        <ul class="protocol-list">
+                            <li><strong>Cifrado simétrico:</strong> usa la misma clave para cifrar y descifrar. Algoritmos: AES (estándar actual), ChaCha20</li>
+                            <li><strong>Cifrado asimétrico:</strong> usa par de claves (pública y privada). Algoritmos: RSA, criptografía de curva elíptica (ECC)</li>
+                        </ul>
+                    </section>
+                    
+                    <section id="tls">
+                        <h3>TLS (Transport Layer Security)</h3>
+                        <p>TLS es el protocolo de cifrado más utilizado para asegurar comunicaciones en Internet. Funciona estableciendo una conexión segura mediante:</p>
+                        <ul class="protocol-list">
+                            <li><strong>Handshake de TLS:</strong> cliente y servidor acuerdan protocolos de cifrado usando criptografía asimétrica</li>
+                            <li><strong>Autenticación con certificados digitales:</strong> el servidor prueba su identidad</li>
+                            <li><strong>Intercambio de claves:</strong> se establece una clave de sesión segura</li>
+                            <li><strong>Comunicación cifrada:</strong> todos los datos se cifran usando cifrado simétrico de alto rendimiento (como AES)</li>
+                        </ul>
+                        <p><strong>Características clave de TLS:</strong></p>
+                        <ul class="protocol-list">
+                            <li>Algoritmos de cifrado fuertes (AES, ChaCha20)</li>
+                            <li>Infraestructura de Clave Pública (PKI) para autenticación</li>
+                            <li>Secreto hacia adelante (forward secrecy)</li>
+                            <li>Verificación de integridad mediante HMAC</li>
+                            <li>Soporte para múltiples versiones de protocolo (TLS 1.2, TLS 1.3)</li>
+                        </ul>
+                    </section>
+
+                  <section id="autenticacion">
+                        <h3>Autenticación</h3>
+                        <p>La autenticación verifica la identidad de usuarios y dispositivos antes de permitir acceso a recursos.</p>
+                        <p><strong>Mejores prácticas:</strong></p>
+                        <ul class="protocol-list">
+                            <li><strong>Autenticación multifactor (MFA):</strong> requiere al menos dos factores de autenticación (contraseña + token + biometría)</li>
+                            <li><strong>Autenticación sin contraseña:</strong> uso de claves de seguridad FIDO2, Windows Hello, etc.</li>
+                            <li>Implementación de certificados digitales para servidores y clientes</li>
+                            <li>Control de acceso basado en roles (RBAC)</li>
+                            <li>Monitoreo continuo de accesos</li>
+                        </ul>
+                    </section>
+                </section>
+                
+                <section id="conclusion">
+                    <h2>Conclusión</h2>
+                    <p>Los fundamentos del teleproceso moderno se sustentan en una arquitectura robusta de comunicaciones que integra el modelo OSI/ISO como marco conceptual teórico, diversos principios de transmisión de datos y múltiples tecnologías de red. Si bien el modelo OSI proporciona una estructura lógica de siete capas que facilita la comprensión de las comunicaciones de red, es el <strong>modelo TCP/IP</strong> el que realmente se implementa en Internet y redes modernas.</p>
+                    <p>La arquitectura cliente-servidor constituye el paradigma fundamental del teleproceso, permitiendo la distribución eficiente de recursos y procesamiento entre múltiples usuarios y sistemas. Las técnicas de modulación, sincronización, control de errores y conmutación trabajan conjuntamente para asegurar la integridad y disponibilidad de los datos transmitidos.</p>
+                    <p>La seguridad mediante cifrado robusto (AES, TLS 1.3) y autenticación multifactor se ha vuelto un componente crítico del teleproceso moderno, protegiendo la confidencialidad, integridad y disponibilidad de la información en tránsito. La evolución continua de estos fundamentos, junto con el desarrollo de nuevas tecnologías como 5G, IoT y computación en la nube, impulsa el desarrollo de aplicaciones cada vez más sofisticadas que transforman la manera en que trabajamos, nos comunicamos y accedemos a la información en la era digital.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Victor Jerez, V-28.001.871 - Fundamentos del Teleproceso Moderno - 17 de Octubre de 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
+  
