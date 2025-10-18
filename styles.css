@@ -1,0 +1,240 @@
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #2980b9;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --border-color: #bdc3c7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .student-info {
+            font-size: 0.9rem;
+        }
+        
+        .date {
+            font-size: 0.9rem;
+        }
+        
+        .title-section {
+            text-align: center;
+            padding: 30px 0;
+            background-color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .table-of-contents {
+            flex: 0 0 280px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .toc-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .toc-list {
+            list-style-type: none;
+        }
+        
+        .toc-list li {
+            margin-bottom: 8px;
+        }
+        
+        .toc-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 5px 0;
+            border-left: 3px solid transparent;
+            padding-left: 10px;
+        }
+        
+        .toc-list a:hover {
+            color: var(--secondary-color);
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        .toc-list .toc-level-2 {
+            margin-left: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .toc-list .toc-level-3 {
+            margin-left: 30px;
+            font-size: 0.85rem;
+        }
+        
+        .main-content {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            margin: 25px 0 15px;
+        }
+        
+        h4 {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .protocol-list {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .protocol-list li::before {
+            content: "·";
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            color: var(--secondary-color);
+        }
+        
+        .note {
+            background-color: #e8f4fc;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .advantages-list, .disadvantages-list {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .advantages-list li::before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+            margin-left: -1.5em;
+        }
+        
+        .disadvantages-list li::before {
+            content: "✗";
+            color: #e74c3c;
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+            margin-left: -1.5em;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .table-of-contents {
+                position: static;
+                max-height: none;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+        }
